@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#193c32">
+  <meta name="description" content="A source-backed recycling guide for HKU re Kiosk. Check one item, its conditions, and the official guidance.">
+  <title>re:guide — HKU Recycling Helper</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Crect width='60' height='60' rx='16' fill='%23193c32'/%3E%3Ctext x='10' y='44' font-size='43' fill='%23daf096'%3E↗%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="re:guide home"><span class="brand-icon" aria-hidden="true">↗</span> re:guide<span class="brand-sub">HKU RECYCLING HELPER</span></a>
+    <nav aria-label="Main navigation">
+      <button class="nav-button active" data-view="guide" aria-current="page">The guide</button>
+      <button class="nav-button" data-view="sources">Our sources</button>
+      <button class="nav-button" data-view="about">About</button>
+    </nav>
+    <span class="prototype"><span aria-hidden="true"></span> Course prototype</span>
+  </header>
+
+  <main id="main">
+    <section id="guide-view" class="view" aria-label="Recycling guide">
+      <div class="hero">
+        <div>
+          <p class="eyebrow"><span class="line"></span> LESS GUESSWORK. BETTER RECYCLING.</p>
+          <h1>Small item.<br><em>Right next step.</em></h1>
+          <p class="hero-copy">Not sure where it goes? Check one item against HKU’s published guidance, with a source you can follow.</p>
+        </div>
+        <div class="scope-note"><span class="scope-pin" aria-hidden="true">⌖</span><div><span class="eyebrow">YOUR COLLECTION POINT</span><strong>re Kiosk</strong><p>Run Run Shaw Podium, Main Campus</p><a href="https://www.wastereduction.hku.hk/re-facilities" target="_blank" rel="noopener noreferrer">View official location <span aria-hidden="true">↗</span></a></div></div>
+      </div>
+
+      <div class="workspace">
+        <section class="question-card" aria-labelledby="question-heading">
+          <div class="card-top"><span class="step-label">01 / YOUR ITEM</span><span class="small-tag">Text questions</span></div>
+          <h2 id="question-heading">What are you recycling?</h2>
+          <p class="muted">Tell us the item, material, and condition if you know them.</p>
+          <form id="question-form">
+            <label for="question" class="input-label">Your question</label>
+            <div class="textarea-wrap"><textarea id="question" name="question" rows="4" maxlength="600" placeholder="e.g. Where can I recycle a clean pizza box?" required aria-describedby="question-hint" disabled></textarea><span id="character-count" aria-hidden="true">0 / 600</span></div>
+            <p id="question-hint" class="input-hint">English · One item at a time · re Kiosk only</p>
+            <button type="submit" id="submit-button" class="primary-button" disabled><span>Loading guidance…</span><span aria-hidden="true">↗</span></button>
+          </form>
+          <div class="examples"><p class="eyebrow">TRY A QUESTION</p><div class="example-list">
+            <button class="example-button" data-query="Where can I recycle a clean pizza box?" disabled>Clean pizza box <span aria-hidden="true">↗</span></button>
+            <button class="example-button" data-query="How do I recycle a clean takeaway coffee cup?" disabled>Takeaway coffee cup <span aria-hidden="true">↗</span></button>
+            <button class="example-button" data-query="Where can I recycle a battery?" disabled>A battery <span aria-hidden="true">↗</span></button>
+          </div></div>
+          <div class="question-foot"><span aria-hidden="true">◎</span><p>Built around a small, curated rule set. If we cannot confirm an answer, we will ask or say so.</p></div>
+        </section>
+
+        <section class="answer-card" id="answer-panel" aria-labelledby="answer-heading" aria-live="polite" aria-atomic="true">
+          <div class="card-top"><span class="step-label">02 / YOUR NEXT STEP</span><span class="small-tag source-tag">Source-backed</span></div>
+          <div id="answer-content" class="empty-state">
+            <div class="orbit" aria-hidden="true"><span class="orbit-small one">↗</span><span class="orbit-main">↻</span><span class="orbit-small two">✳</span></div>
+            <span class="eyebrow">A SECOND LOOK GOES A LONG WAY</span>
+            <h2 id="answer-heading">Good habits start<br>with one question.</h2>
+            <p>Your next step, preparation details, and official source will appear here.</p>
+            <div class="empty-pipeline"><span>Ask</span><span aria-hidden="true">→</span><span>Check</span><span aria-hidden="true">→</span><span>Recycle</span></div>
+          </div>
+        </section>
+      </div>
+      <div class="guide-bottom"><p><span aria-hidden="true">↳</span> Different collection points have different rules. This guide covers routine re Kiosk collection.</p><button class="text-button" data-view="about">What this version covers <span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section id="sources-view" class="view content-view" hidden>
+      <p class="eyebrow">TRACEABLE BY DESIGN</p><h1>Follow the source.</h1><p class="section-intro">Answers refer to a fixed collection of official HKU guidance. Each result identifies its source and section so you can check it yourself.</p>
+      <div class="source-overview"><span id="source-count">—</span><div><strong>Official sources reviewed</strong><p>Collected 19 October 2026. On-site labels and real-time availability have not been verified.</p></div><a class="outline-button" href="/sources/recycling-101.pdf" target="_blank" rel="noopener noreferrer">Open official poster ↗</a></div>
+      <div id="source-list" class="source-list"><p>Loading sources…</p></div>
+    </section>
+
+    <section id="about-view" class="view content-view" hidden>
+      <p class="eyebrow">A SMALL, PRACTICAL FIRST STEP</p><h1>Know the limits.<br><em>Trust the process.</em></h1><p class="section-intro">An AILT9019 team project exploring how clearer, verifiable guidance can help students recycle at HKU.</p>
+      <div class="about-grid"><article><span class="step-label">WHAT WORKS NOW</span><h2>A guide for re Kiosk.</h2><p>English text questions, a limited set of supported items, component separation, clarification questions, and links to published sources.</p><p>The current version uses deterministic rule lookup. No AI model is connected, and no query is sent to an external API or saved by the app.</p></article><article><span class="step-label">WHAT NEEDS MORE WORK</span><h2>Careful about the gaps.</h2><p>Photo identification, general conversation, other collection points, and special collection events are outside this version.</p><p>It does not confirm current bin capacity, equipment status, or on-site labels. Hazardous waste is referred to specialist guidance.</p></article></div>
+      <div class="process-card"><h2>How an answer is made</h2><ol><li><span>01</span><strong>Understand the item</strong><p>Match an English item name and check for missing details.</p></li><li><span>02</span><strong>Retrieve the rule</strong><p>Look up the curated re Kiosk rule and its conditions.</p></li><li><span>03</span><strong>Show the evidence</strong><p>Return a next step with its official source, or ask for clarification.</p></li></ol></div>
+      <button class="primary-button back-button" data-view="guide"><span>Check an item</span><span aria-hidden="true">↗</span></button>
+    </section>
+  </main>
+  <footer><span class="footer-brand">re:guide</span><p>Made for a more thoughtful campus.</p><span>AILT9019 · First prototype</span></footer>
+</body>
+</html>

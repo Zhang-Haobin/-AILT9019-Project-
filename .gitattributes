@@ -1,0 +1,4 @@
+# Preserve source documents and preview images as binary files.
+*.pdf binary
+*.jpg binary
+*.png binary

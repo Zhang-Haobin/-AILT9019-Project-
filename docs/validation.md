@@ -1,0 +1,41 @@
+# First-prototype validation
+
+Date: 19 October 2026 (Hong Kong).
+
+## Automated workflow checks
+
+Command: `node --test tests/guide.test.mjs`
+
+**Result: 60 passed, 0 failed.** The final code was tested using the actual research JSON files.
+
+Coverage includes accepted and excluded items, component separation, missing cleanliness, battery type and condition, unknown items, multiple-item queries, conflicting cleanliness descriptions, damaged glass, mixed materials, unsupported collection points, special-event scope, and specialist-waste referral. Citation IDs and URLs are checked against the source catalog.
+
+The set includes 20 initial ordinary-item examples and three specialist-referral examples, followed by additional edge cases and clarification-flow tests. Expected results were written for the documented prototype workflow. These are **not** an independent recycling-policy assessment, a measured 90% accuracy result, or student usability testing.
+
+## Browser checks
+
+The local app was loaded in the Codex in-app browser and the following interactions were checked against the visible result:
+
+| Check | Observed result |
+|---|---|
+| Clean pizza-box example | Paper category, condition, and Photo Guide citation displayed. |
+| Clean takeaway coffee-cup example | Lid, sleeve, and cup-body classifications displayed separately. |
+| Generic battery example | Asked for type, then condition; confirming an intact portable household rechargeable battery produced the documented category. |
+| Manually typed `pizza box` | Asked about cleanliness. |
+| Selecting `No, residue remains` | Excluded the item from the paper category in that condition. |
+| Laboratory chemical waste in a plastic bottle | Referred to the HKU Safety Office instead of recommending plastic recycling. |
+| Our sources | All nine source records and the local poster link were present. |
+| About | Deterministic lookup, no connected AI model, and scope limitations were visible. |
+
+Desktop layout was reviewed at a 1280 x 900 viewport and mobile layout at 390 x 844. No horizontal document overflow was reported by the browser at either size. Full-page screenshots were visually reviewed. No error-level browser console entries were reported during the checks.
+
+- [Desktop preview](preview-desktop.jpg)
+- [Mobile preview](preview-mobile.jpg)
+
+## Limits of this verification
+
+This record verifies the local prototype's implementation and selected interactions. It does not establish live bin availability, current on-site labels, unrestricted natural-language understanding, external-source uptime, or successful operation on every device. No student usability sessions have been carried out as part of this implementation.
+
+## HTTP checks
+
+All seven required page, JavaScript, CSS, JSON, and PDF routes returned HTTP 200. JavaScript MIME types, JSON parsing, and the PDF header were checked. Three non-public or traversal routes returned HTTP 404.

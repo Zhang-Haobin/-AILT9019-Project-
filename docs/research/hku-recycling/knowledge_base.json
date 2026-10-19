@@ -1,0 +1,563 @@
+{
+  "schema_version": 2,
+  "collected_on": "2026-10-19",
+  "status": "research_seed_not_deployed",
+  "source_catalog": "sources.json",
+  "scope_note": "R01-R22 summarise published guidance for HKU re Kiosk only. Do not automatically apply them to ordinary re Bins or all smart bins. Entries are English summaries, not verbatim official text.",
+  "rules": [
+    {
+      "id": "R01",
+      "category": "paper",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Must match the materials listed in the poster and be free from food, paint, or chemical contamination."
+      ],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Paper / DOs",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Office paper",
+        "Corrugated paper",
+        "Envelopes"
+      ]
+    },
+    {
+      "id": "R02",
+      "category": "paper",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Paper / DON'Ts",
+      "note": "This establishes exclusion from the specified recycling category only; do not automatically infer another disposal route.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Napkins",
+        "Toilet paper"
+      ]
+    },
+    {
+      "id": "R03",
+      "category": "paper",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Paper / DON'Ts",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Wax paper",
+        "Adhesive paper",
+        "Thermal induction fax paper"
+      ]
+    },
+    {
+      "id": "R04",
+      "category": "paper",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Paper / DON'Ts",
+      "note": "Refer chemical-related cases to a specialist service.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Food-contaminated paper",
+        "Paint-contaminated cardboard",
+        "Chemically contaminated paper"
+      ]
+    },
+    {
+      "id": "R05",
+      "category": "metal",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Metal / DOs",
+      "note": "This poster section does not provide detailed cleaning steps; do not claim those steps have been verified.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Aluminium cans",
+        "Iron cans"
+      ]
+    },
+    {
+      "id": "R06",
+      "category": "metal",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Metal / DON'Ts",
+      "note": "Metal content alone does not make an item suitable for the metal-can category.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Aerosol cans",
+        "Paint cans",
+        "Chemical containers",
+        "Cookware",
+        "Potato chips cans"
+      ]
+    },
+    {
+      "id": "R07",
+      "category": "plastic",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Must match the listed material and item scope; assess composites and metal components separately."
+      ],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Plastic / DOs",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Plastic beverage bottles",
+        "Plastic personal care bottles",
+        "Plastic takeaway boxes"
+      ]
+    },
+    {
+      "id": "R08",
+      "category": "plastic",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Plastic / DON'Ts",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Medicine containers",
+        "Correction fluid containers",
+        "Toothpaste tubes",
+        "Rubber products",
+        "Silicone products",
+        "Plastic products with metal components",
+        "Other composite materials"
+      ]
+    },
+    {
+      "id": "R09",
+      "category": "tetra_pak",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Remove straws and plastic wrapping.",
+        "Rinse and cut open a corner."
+      ],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Tetra Pak / DOs and DON'Ts",
+      "note": "Paper cups follow this re Kiosk guidance; do not generalise the classification to all Hong Kong recycling services.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Beverage cartons",
+        "Tetra Pak cartons",
+        "Paper cups"
+      ]
+    },
+    {
+      "id": "R10",
+      "category": "glass_bottle",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Limited to the bottle types listed in the poster."
+      ],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Glass Bottle / DOs",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Glass beverage bottles",
+        "Glass food bottles",
+        "Glass sauce bottles"
+      ]
+    },
+    {
+      "id": "R11",
+      "category": "glass_bottle",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Glass Bottle / DON'Ts",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Glass containers contaminated with hazardous chemicals",
+        "Tempered glass",
+        "Laminated glass",
+        "Strengthened glass"
+      ]
+    },
+    {
+      "id": "R12",
+      "category": "rechargeable_battery",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Limited to portable household rechargeable batteries; assess damaged items separately."
+      ],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Rechargeable Battery / DOs",
+      "note": "This does not establish acceptance of every battery type or condition.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Portable household rechargeable batteries"
+      ]
+    },
+    {
+      "id": "R13",
+      "category": "rechargeable_battery",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Rechargeable Battery / DON'Ts",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Single-use batteries",
+        "Lead-acid batteries"
+      ]
+    },
+    {
+      "id": "R14",
+      "category": "rechargeable_battery",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S03",
+      "source_locator": "Page 1 / Rechargeable Battery / DON'Ts",
+      "note": "For queries about damaged batteries, the project should refer the user for staff confirmation rather than generate packaging or transport instructions.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Damaged batteries without protective measures"
+      ]
+    },
+    {
+      "id": "R15",
+      "category": "paper",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Must be clean."
+      ],
+      "source_id": "S04",
+      "source_locator": "Paper / Clean pizza box",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Clean pizza boxes"
+      ]
+    },
+    {
+      "id": "R16",
+      "category": "multiple",
+      "decision": "separate_components",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Clean lid: plastic.",
+        "Cup sleeve: paper.",
+        "Clean cup body: Tetra Pak category."
+      ],
+      "source_id": "S04",
+      "source_locator": "Paper / Take-away coffee cup",
+      "note": "Assess the components separately; do not classify the whole cup as paper.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Takeaway coffee cups"
+      ]
+    },
+    {
+      "id": "R17",
+      "category": "unspecified",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S04",
+      "source_locator": "Paper / Baking paper",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Baking paper"
+      ]
+    },
+    {
+      "id": "R18",
+      "category": "multiple",
+      "decision": "separate_components",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Tray: plastic.",
+        "Foil lid: not accepted."
+      ],
+      "source_id": "S04",
+      "source_locator": "Plastics / Contact lens packaging",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Contact lens packaging"
+      ]
+    },
+    {
+      "id": "R19",
+      "category": "multiple",
+      "decision": "separate_components",
+      "facility_scope": "re_kiosk",
+      "conditions": [
+        "Clean bottle: plastic.",
+        "Pump: not accepted."
+      ],
+      "source_id": "S04",
+      "source_locator": "Plastics / Personal care container",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Personal care containers"
+      ]
+    },
+    {
+      "id": "R20",
+      "category": "plastic",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S04",
+      "source_locator": "Plastics / Cling film with food label",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Cling film with a food label"
+      ]
+    },
+    {
+      "id": "R21",
+      "category": "metal",
+      "decision": "accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S04",
+      "source_locator": "Metals / Mooncake container",
+      "note": "",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Metal mooncake containers"
+      ]
+    },
+    {
+      "id": "R22",
+      "category": "unspecified",
+      "decision": "not_accepted",
+      "facility_scope": "re_kiosk",
+      "conditions": [],
+      "source_id": "S04",
+      "source_locator": "Metals / Foil lined snack packaging; Aluminium foil pouch",
+      "note": "This is routine Photo Guide guidance. Special collection events have separate dates and conditions and must be treated separately.",
+      "verified_on": "2026-10-19",
+      "verification_level": "official_document_reviewed_not_site_verified",
+      "items_en": [
+        "Foil-lined snack packaging",
+        "Aluminium foil pouches"
+      ]
+    }
+  ],
+  "facilities": [
+    {
+      "id": "re_kiosk",
+      "name": "re Kiosk",
+      "location": "Run Run Shaw Podium, Main Campus; next to Subway and opposite the Runme Shaw Building",
+      "listed_categories": [
+        "paper",
+        "tetra_pak",
+        "metal",
+        "glass_bottle",
+        "plastic",
+        "rechargeable_battery"
+      ],
+      "listed_access": "24-hour access",
+      "source_id": "S01",
+      "source_locator": "re Kiosk",
+      "site_verified": false
+    },
+    {
+      "id": "smart_kk_leung",
+      "name": "K.K. Leung Building",
+      "location": "LG2/F, outside the lift lobby",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "plastic_bottle"
+      ],
+      "plastic_bottle_listing": "listed",
+      "glass_bottle_listing": "excluded",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    },
+    {
+      "id": "smart_meng_wah",
+      "name": "Meng Wah Complex",
+      "location": "Outside the 1/F entrance, next to the escalator",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "plastic_bottle"
+      ],
+      "plastic_bottle_listing": "listed",
+      "glass_bottle_listing": "excluded",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    },
+    {
+      "id": "smart_hui_oi_chow",
+      "name": "Hui Oi Chow Science Building",
+      "location": "G/F, outside Innovation Wing",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "plastic_bottle"
+      ],
+      "plastic_bottle_listing": "listed",
+      "glass_bottle_listing": "excluded",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    },
+    {
+      "id": "smart_centennial",
+      "name": "Central Podium Levels, Centennial Campus",
+      "location": "G/F",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "glass_bottle"
+      ],
+      "plastic_bottle_listing": "excluded",
+      "glass_bottle_listing": "listed",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    },
+    {
+      "id": "smart_jc_interdisciplinary",
+      "name": "Jockey Club Building for Interdisciplinary Research",
+      "location": "G/F, outside the entrance",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "plastic_bottle"
+      ],
+      "plastic_bottle_listing": "listed",
+      "glass_bottle_listing": "excluded",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    },
+    {
+      "id": "smart_med_laboratory",
+      "name": "Laboratory Block, Faculty of Medicine Building",
+      "location": "G/F lift lobby, near the food kiosk",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "plastic_bottle"
+      ],
+      "plastic_bottle_listing": "listed",
+      "glass_bottle_listing": "excluded",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    },
+    {
+      "id": "smart_pine_court",
+      "name": "Pine Court",
+      "location": "Common area outside Block 1",
+      "listed_categories": [
+        "paper",
+        "metal",
+        "other_plastic",
+        "glass_bottle"
+      ],
+      "plastic_bottle_listing": "excluded",
+      "glass_bottle_listing": "listed",
+      "source_id": "S01",
+      "source_locator": "Smart Recycling Bins / accepted recyclables and network on campus",
+      "site_verified": false,
+      "note": "Mapped from the category list and two location exceptions on the same page. On-site labels and real-time status have not been verified. Treat unlisted categories as unknown rather than automatically excluded."
+    }
+  ],
+  "application_guardrails": [
+    {
+      "id": "G01",
+      "type": "project_design_not_official_policy",
+      "condition": "The location or facility type is unknown and affects the answer.",
+      "action": "Ask for the location and facility type, or explicitly limit the answer to re Kiosk."
+    },
+    {
+      "id": "G02",
+      "type": "project_design_not_official_policy",
+      "condition": "Cleanliness, material, or components are unclear.",
+      "action": "Ask for clarification before giving an affirmative disposal instruction."
+    },
+    {
+      "id": "G03",
+      "type": "project_design_not_official_policy",
+      "condition": "The item is laboratory chemical waste or clinical waste.",
+      "action": "Stop ordinary recycling-bin recommendations and refer the user to the HKU Safety Office.",
+      "source_id": "S07"
+    },
+    {
+      "id": "G04",
+      "type": "project_design_not_official_policy",
+      "condition": "The rule base does not cover the item, or official sources conflict.",
+      "action": "State that the answer cannot be confirmed and provide an official source; do not automatically classify unknown items as general waste."
+    },
+    {
+      "id": "G05",
+      "type": "project_design_not_official_policy",
+      "condition": "The query concerns a special collection event.",
+      "action": "Check the dates, times, location, and event-specific item conditions; do not apply routine rules or expired event information."
+    }
+  ],
+  "language": "en"
+}
