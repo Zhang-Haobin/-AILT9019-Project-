@@ -2,6 +2,19 @@
 
 A local, English-language prototype for the AILT9019 team project. It answers a limited set of questions about **routine collection at HKU re Kiosk**, using the team's curated official-source research.
 
+## Deploy to Vercel
+
+The repository includes `vercel.json` and a dependency-free Node.js build script. The hosted app runs in the browser; Python is used only by the optional local server.
+
+1. Sign in to Vercel and import this GitHub repository as a new project.
+2. Use the repository root as the Root Directory and **Other** as the framework preset.
+3. The repository config sets **Build Command** to `npm run build` and **Output Directory** to `dist`.
+4. No environment variables or API keys are needed. Deploy the project, then test the generated production URL.
+
+To build locally with Node.js, run `npm run build`. Serve `dist/` with a static server to preview the exact hosted assets. The build copies the interface, both JSON files, and the official poster to the paths the app requests. It does not deploy the Python server.
+
+A Vercel deployment has not been confirmed merely because these configuration files exist. Use the actual deployment result for the public URL.
+
 ## Run the prototype
 
 You need Python 3. No extra packages, API keys, or build step are required.

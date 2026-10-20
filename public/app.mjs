@@ -124,12 +124,12 @@ try {
   content.className = 'answer-content';
   const heading = element('h2', '', 'Guidance could not be loaded.');
   heading.id = 'answer-heading';
-  content.replaceChildren(heading, element('p', 'error-note', 'Start the app with python3 server.py and open its Local URL. Refresh to retry.'));
+  content.replaceChildren(heading, element('p', 'error-note', 'The guidance files could not be loaded. Refresh to retry, or use the official HKU guidance below.'));
   const link = element('a', '', 'Open HKU’s official guidance ↗');
   link.href = 'https://www.wastereduction.hku.hk/recycling-101';
   link.target = '_blank'; link.rel = 'noopener noreferrer';
   content.append(link);
-  document.querySelector('#source-list').replaceChildren(element('p', 'error-note', 'Sources are unavailable. Start the local server and refresh the page.'));
+  document.querySelector('#source-list').replaceChildren(element('p', 'error-note', 'Sources are temporarily unavailable. Refresh to retry.'));
   submit.firstElementChild.textContent = 'Guidance unavailable';
   console.error('Research data could not be loaded.', error);
 }

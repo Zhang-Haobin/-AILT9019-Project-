@@ -219,3 +219,7 @@ __marimo__/
 
 # macOS metadata
 .DS_Store
+
+# Static builds and hosting-local state
+.vercel/
+node_modules/

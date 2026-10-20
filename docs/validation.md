@@ -39,3 +39,9 @@ This record verifies the local prototype's implementation and selected interacti
 ## HTTP checks
 
 All seven required page, JavaScript, CSS, JSON, and PDF routes returned HTTP 200. JavaScript MIME types, JSON parsing, and the PDF header were checked. Three non-public or traversal routes returned HTTP 404.
+
+## Vercel deployment preparation - 20 October 2026
+
+The dependency-free Node build completed successfully. All seven required output assets were present. Both JSON files parsed correctly and matched the research originals; the hosted PDF matched the original bytes. The updated browser module passed Node's syntax check. The rule engine was unchanged.
+
+This verifies static deployment readiness only. Vercel account authorization and a successful production deployment still need to be confirmed.

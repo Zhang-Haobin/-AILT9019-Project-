@@ -1,0 +1,11 @@
+# The hosted app uses static assets; these files are for local use only.
+server.py
+Start.command
+tests/
+docs/demo-script.md
+docs/preview-desktop.jpg
+docs/preview-mobile.jpg
+docs/validation.md
+node_modules/
+dist/
+.DS_Store
