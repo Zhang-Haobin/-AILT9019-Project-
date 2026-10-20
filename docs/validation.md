@@ -45,3 +45,11 @@ All seven required page, JavaScript, CSS, JSON, and PDF routes returned HTTP 200
 The dependency-free Node build completed successfully. All seven required output assets were present. Both JSON files parsed correctly and matched the research originals; the hosted PDF matched the original bytes. The updated browser module passed Node's syntax check. The rule engine was unchanged.
 
 This verifies static deployment readiness only. Vercel account authorization and a successful production deployment still need to be confirmed.
+
+## Vercel missing-data repair - 20 October 2026
+
+The production browser reported HTTP 404 for `/data/knowledge_base.json`, preventing the interface from enabling queries. The old error text also incorrectly instructed online visitors to start Python.
+
+The build now refreshes tracked `public/data/` and `public/sources/` compatibility assets as well as `dist/`. Both supported static hosting layouts include the browser-requested resources. Online loading failures now offer a refresh and official guidance instead of local-server instructions.
+
+Validation: **64 tests passed, 0 failed**, comprising the existing 60 workflow checks and four new static-resource packaging checks. The packaging checks extract local URLs from the browser source and verify that they are bundled; JSON and PDF copies are compared with the maintained research files. This does not establish independent recycling accuracy. Production verification must be recorded separately after deployment.

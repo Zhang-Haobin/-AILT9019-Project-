@@ -11,7 +11,7 @@ The repository includes `vercel.json` and a dependency-free Node.js build script
 3. The repository config sets **Build Command** to `npm run build` and **Output Directory** to `dist`.
 4. No environment variables or API keys are needed. Deploy the project, then test the generated production URL.
 
-To build locally with Node.js, run `npm run build`. Serve `dist/` with a static server to preview the exact hosted assets. The build copies the interface, both JSON files, and the official poster to the paths the app requests. It does not deploy the Python server.
+To build locally with Node.js, run `npm run build`. Serve `dist/` with a static server to preview the exact hosted assets. The build copies the interface, both JSON files, and the official poster to the paths the app requests. It also refreshes tracked compatibility copies in `public/data/` and `public/sources/`, so direct hosting of the `public/` directory works. Edit the maintained files under `docs/research/hku-recycling/` and run `npm run build` before committing changes; do not edit the generated compatibility copies by hand. It does not deploy the Python server.
 
 A Vercel deployment has not been confirmed merely because these configuration files exist. Use the actual deployment result for the public URL.
 
@@ -72,10 +72,10 @@ Open the link beneath a result and compare its cited section with the response. 
 
 ## Validation
 
-If Node.js is available, run the workflow tests from the project folder:
+If Node.js and npm are available, run the workflow and static-build tests from the project folder:
 
 ```sh
-node --test tests/guide.test.mjs
+npm test
 ```
 
 These tests check retrieval, citations, clarification, exclusions, scope restrictions, and specialist referral. They do **not** establish independently measured recycling accuracy or replace checks against current official guidance and on-site labels. Actual validation results are recorded in `docs/validation.md`.

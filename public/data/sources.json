@@ -1,0 +1,87 @@
+{
+  "collected_on": "2026-10-19",
+  "language": "en",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "HKU re Facilities",
+      "url": "https://www.wastereduction.hku.hk/re-facilities",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "Facility types, locations, and location-specific exceptions for smart bins.",
+      "verification": "Web page text reviewed; on-site status not verified.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S02",
+      "title": "HKU Recycling 101",
+      "url": "https://www.wastereduction.hku.hk/recycling-101",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "Recycling guidance for re Kiosk and the official poster download.",
+      "verification": "Web page reviewed; the poster is recorded separately as S03.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S03",
+      "title": "Recycling 101: The Correct Choices (official poster PDF)",
+      "url": "https://www.wastereduction.hku.hk/_files/ugd/bccd45_652bab3854994da9a05b96ed09580df4.pdf",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "Accepted and excluded examples across six material categories.",
+      "verification": "Original downloaded; page 1 rendered and visually reviewed; no publication date identified.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S04",
+      "title": "HKU Recycling 101 Photo Guide",
+      "url": "https://www.wastereduction.hku.hk/photo-guide",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "Specific items and instructions for separating components at re Kiosk.",
+      "verification": "Web page text reviewed; no publication date identified.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S05",
+      "title": "HKU GreenU Reward Scheme",
+      "url": "https://www.wastereduction.hku.hk/greenu-reward-scheme",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "How the HKU App relates to the GreenU scheme.",
+      "verification": "Web page text reviewed; changing rewards and point conversion values were not collected.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S06",
+      "title": "HKU Resources Circulation Event Schedules",
+      "url": "https://www.wastereduction.hku.hk/resources-circulation-event-schedules",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "Time-limited special recycling and reuse events.",
+      "verification": "Web page text reviewed; ambiguous item descriptions were not converted into routine collection rules.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S07",
+      "title": "HKU Safety Office: Chemicals & Waste",
+      "url": "https://safety.hku.hk/chemicals-waste",
+      "publisher": "HKU Safety Office",
+      "use": "Specialist services for laboratory chemical waste and clinical waste.",
+      "verification": "Web page text reviewed; used for referral only, without disposal procedures.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S08",
+      "title": "HKU Estates Office: Facility Management",
+      "url": "https://www.estates.hku.hk/eo-general/sustainability/sustainability-management/facility-management",
+      "publisher": "HKU Estates Office",
+      "use": "Background on waste management, material recycling, and food waste from campus catering.",
+      "verification": "Web page text reviewed; this is not a list of student self-service collection points.",
+      "accessed_on": "2026-10-19"
+    },
+    {
+      "id": "S09",
+      "title": "HKU Be a Campus Green Hero Online Quiz",
+      "url": "https://www.wastereduction.hku.hk/be-a-campus-green-hero-quiz",
+      "publisher": "HKU Sustainability Unit, Estates Office",
+      "use": "Cross-reference for recycling knowledge and smart-bin operating steps.",
+      "verification": "Q1 explicitly dates the facility count to 2026-03-17; it must not be treated as the current count.",
+      "accessed_on": "2026-10-19"
+    }
+  ]
+}
