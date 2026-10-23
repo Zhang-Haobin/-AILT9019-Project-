@@ -1,11 +1,16 @@
 import {createGuide} from './engine.mjs';
+import {findNearestLocation, googleMapsDirectionsUrl} from './locator.mjs';
 
 const form = document.querySelector('#question-form');
 const input = document.querySelector('#question');
 const submit = document.querySelector('#submit-button');
 const panel = document.querySelector('#answer-panel');
 const content = document.querySelector('#answer-content');
+const locateButton = document.querySelector('#locate-button');
+const locatorStatus = document.querySelector('#locator-status');
+const locatorResult = document.querySelector('#locator-result');
 let answer;
+let mapLocations = [];
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -96,6 +101,65 @@ document.querySelectorAll('[data-query]').forEach(button => button.addEventListe
   if (answer) run(input.value);
 }));
 
+function showLocationError(message) {
+  locatorStatus.textContent = message;
+  locatorResult.hidden = true;
+  locatorResult.replaceChildren();
+  locateButton.disabled = false;
+}
+
+function requestNearestLocation() {
+  if (!navigator.geolocation) {
+    showLocationError('Location access is not available in this browser.');
+    return;
+  }
+  locateButton.disabled = true;
+  locatorStatus.textContent = 'Requesting your location…';
+  locatorResult.hidden = true;
+  navigator.geolocation.getCurrentPosition(position => {
+    try {
+      const nearest = findNearestLocation(
+        {latitude: position.coords.latitude, longitude: position.coords.longitude},
+        mapLocations,
+      );
+      const facility = nearest.location.facility;
+      const distance = nearest.distanceMeters < 1000
+        ? `${Math.round(nearest.distanceMeters)} m away`
+        : `${(nearest.distanceMeters / 1000).toFixed(1)} km away`;
+      const heading = element('h3', '', facility.name);
+      const detail = element('p', '', `${facility.location} · about ${distance} in a straight line`);
+      const directions = element('a', 'locator-directions', 'Open walking directions in Google Maps ↗');
+      directions.href = googleMapsDirectionsUrl(
+        {latitude: position.coords.latitude, longitude: position.coords.longitude},
+        nearest.location,
+      );
+      directions.target = '_blank';
+      directions.rel = 'noopener noreferrer';
+      const pinSource = element('a', '', 'View approximate building pin source ↗');
+      pinSource.href = nearest.location.map_source;
+      pinSource.target = '_blank';
+      pinSource.rel = 'noopener noreferrer';
+      locatorResult.replaceChildren(heading, detail, directions, pinSource);
+      locatorResult.hidden = false;
+      locatorStatus.textContent = 'Nearest among the published locations with mapped pins; not necessarily the nearest operating bin.';
+    } catch (error) {
+      showLocationError('Could not find a nearby mapped location. Please try again later.');
+      console.error('Nearest-bin lookup failed.', error);
+    } finally {
+      locateButton.disabled = false;
+    }
+  }, error => {
+    const messages = {
+      1: 'Location permission was denied. Allow it in your browser settings to find a nearby published bin.',
+      2: 'Your location could not be determined. Check device location settings and try again.',
+      3: 'The location request timed out. Please try again.',
+    };
+    showLocationError(messages[error.code] || 'Could not get your location. Please try again.');
+  }, {enableHighAccuracy: true, timeout: 15000, maximumAge: 60000});
+}
+
+locateButton.addEventListener('click', requestNearestLocation);
+
 async function loadJSON(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Could not load ${url} (${response.status}).`);
@@ -132,4 +196,23 @@ try {
   document.querySelector('#source-list').replaceChildren(element('p', 'error-note', 'Sources are temporarily unavailable. Refresh to retry.'));
   submit.firstElementChild.textContent = 'Guidance unavailable';
   console.error('Research data could not be loaded.', error);
+}
+
+try {
+  const [knowledge, mapData] = await Promise.all([
+    loadJSON('/data/knowledge_base.json'),
+    loadJSON('/data/bin_locations.json'),
+  ]);
+  const facilities = new Map(knowledge.facilities.map(facility => [facility.id, facility]));
+  mapLocations = mapData.locations.map(location => {
+    const facility = facilities.get(location.id);
+    if (!facility) throw new Error(`No facility record for map location ${location.id}.`);
+    return {...location, facility};
+  });
+  locateButton.disabled = false;
+  locatorStatus.textContent = 'Select “Use my location” when you are ready to find a nearby published location.';
+} catch (error) {
+  locateButton.disabled = true;
+  locatorStatus.textContent = 'Published map locations could not be loaded. Refresh to try again.';
+  console.error('Map location data could not be loaded.', error);
 }

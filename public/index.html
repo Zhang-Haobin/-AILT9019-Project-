@@ -64,6 +64,21 @@
         </section>
       </div>
       <div class="guide-bottom"><p><span aria-hidden="true">↳</span> Different collection points have different rules. This guide covers routine re Kiosk collection.</p><button class="text-button" data-view="about">What this version covers <span aria-hidden="true">↗</span></button></div>
+      <section class="locator-card" aria-labelledby="locator-heading">
+        <div class="locator-copy">
+          <p class="eyebrow">GETTING THERE</p>
+          <h2 id="locator-heading">Find a nearby published bin.</h2>
+          <p>Allow location access to compare your position with eight HKU re Kiosk and smart-bin locations and get walking directions.</p>
+          <p class="locator-note">Nearest is estimated by straight-line distance to building-level map pins, not the exact bin. Coverage is partial; access and live bin status are not verified.</p>
+        </div>
+        <div class="locator-action">
+          <button id="locate-button" class="primary-button" type="button" disabled><span>Use my location</span><span aria-hidden="true">↗</span></button>
+          <p class="locator-privacy">The app does not save or send your location. Your browser provides it for this calculation; Google Maps receives it only if you open directions.</p>
+          <p class="locator-attribution">Approximate building pins from OpenStreetMap data via Mapcarta. <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>.</p>
+          <p id="locator-status" class="locator-status" role="status" aria-live="polite">Map locations are loading…</p>
+          <div id="locator-result" class="locator-result" hidden></div>
+        </div>
+      </section>
     </section>
 
     <section id="sources-view" class="view content-view" hidden>

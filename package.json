@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build-static.mjs",
-    "test": "node --test tests/guide.test.mjs tests/static-build.test.mjs"
+    "test": "node --test tests/guide.test.mjs tests/locator.test.mjs tests/static-build.test.mjs"
   }
 }

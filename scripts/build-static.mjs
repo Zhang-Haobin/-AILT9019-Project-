@@ -13,7 +13,7 @@ for (const entry of readdirSync(join(root, 'public'), {withFileTypes: true})) {
 }
 mkdirSync(join(output, 'data'), {recursive: true});
 mkdirSync(join(publicDirectory, 'data'), {recursive: true});
-for (const name of ['knowledge_base.json', 'sources.json']) {
+for (const name of ['knowledge_base.json', 'sources.json', 'bin_locations.json']) {
   const source = join(research, name);
   JSON.parse(readFileSync(source, 'utf8'));
   copyFileSync(source, join(output, 'data', name));

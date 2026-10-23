@@ -12,6 +12,7 @@ Collected on 19 October 2026 (Hong Kong). Prepared as initial research for the A
 
 - `sources.json`: nine official source records with URLs, purposes, review status, and access dates.
 - `knowledge_base.json`: 22 item rules, eight facility records, and five application guardrails. Factual entries include source IDs and section locators.
+- `bin_locations.json`: approximate building-level coordinates for the eight published facilities. Pins are based on OpenStreetMap data accessed through Mapcarta; they are not exact bin coordinates or site-verified.
 - `sources/hku-recycling-101-official.pdf`: the original poster downloaded from HKU. Page 1 was visually reviewed. The original bilingual document, attribution, and copyright are preserved.
 
 All authored notes and structured data are in English. The original source PDF remains in its published form.

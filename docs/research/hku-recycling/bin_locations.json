@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "coordinate_source": "OpenStreetMap building coordinates accessed through Mapcarta",
+  "coordinate_precision": "Approximate building-level pins; the exact bin position is not geocoded or site-verified.",
+  "locations": [
+    {
+      "id": "re_kiosk",
+      "latitude": 22.28251,
+      "longitude": 114.13806,
+      "map_source": "https://mapcarta.com/W182203618"
+    },
+    {
+      "id": "smart_kk_leung",
+      "latitude": 22.283282,
+      "longitude": 114.139037,
+      "map_source": "https://mapcarta.com/W182023173"
+    },
+    {
+      "id": "smart_meng_wah",
+      "latitude": 22.282341,
+      "longitude": 114.139177,
+      "map_source": "https://mapcarta.com/W390554535"
+    },
+    {
+      "id": "smart_hui_oi_chow",
+      "latitude": 22.282803,
+      "longitude": 114.137747,
+      "map_source": "https://mapcarta.com/W182203649"
+    },
+    {
+      "id": "smart_centennial",
+      "latitude": 22.283406,
+      "longitude": 114.134421,
+      "map_source": "https://mapcarta.com/W534044190"
+    },
+    {
+      "id": "smart_jc_interdisciplinary",
+      "latitude": 22.268759,
+      "longitude": 114.129977,
+      "map_source": "https://mapcarta.com/W255543146"
+    },
+    {
+      "id": "smart_med_laboratory",
+      "latitude": 22.267344,
+      "longitude": 114.128816,
+      "map_source": "https://mapcarta.com/W320048989"
+    },
+    {
+      "id": "smart_pine_court",
+      "latitude": 22.265281,
+      "longitude": 114.127089,
+      "map_source": "https://mapcarta.com/W444922337"
+    }
+  ]
+}

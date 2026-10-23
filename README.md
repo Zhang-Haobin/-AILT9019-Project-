@@ -57,12 +57,14 @@ Open the link beneath a result and compare its cited section with the response. 
 - A bounded set of English aliases, condition checks, component separation, and clarification buttons.
 - Explicit handling of unknown items, unsupported locations, special events, and specialist waste.
 - Source IDs and section locators on results, with a source catalog and local copy of the official poster.
+- A permission-based nearest-published-bin finder with straight-line distance estimates and Google Maps walking directions.
 
 **This version uses deterministic rule lookup. No AI model is connected.** Do not describe it as a completed AI or RAG system. An AI-based input parser is a possible next step; recommendations should continue to depend on the curated rules.
 
 ## Scope and known limitations
 
 - Guidance covers **re Kiosk**, not every campus recycling bin. The research includes smart-bin records, but this interface does not make item recommendations for them.
+- The locator compares eight published re Kiosk/smart-bin facility records, not every campus bin. Pins are approximate building coordinates sourced from OpenStreetMap through Mapcarta, not surveyed bin locations; access and live status are unverified. Browser location is used locally and only sent to Google Maps if directions are opened.
 - The English parser uses explicit phrases. Typos, unfamiliar synonyms, negation, complex descriptions, and unrecognised locations may not be interpreted correctly. Results are explicitly scoped to re Kiosk.
 - The rule base contains 22 grouped research records; coverage does not mean arbitrary natural language or every item within a material category is supported.
 - Broad terms such as a bottle or a battery need clarification. A cleaning confirmation is not a material identification or an on-site inspection.
@@ -88,6 +90,9 @@ public/index.html                 English interface
 public/styles.css                 Responsive styling
 public/app.mjs                    Data loading and accessible result rendering
 public/engine.mjs                 Bounded lookup and clarification logic
+public/locator.mjs                Local nearest-location calculation and Google Maps links
+docs/research/hku-recycling/bin_locations.json
+                                  Approximate building-level pins for published locations
 tests/guide.test.mjs               Workflow and edge-case checks
 docs/validation.md                Actual verification record
 docs/demo-script.md               Suggested one-minute demonstration
