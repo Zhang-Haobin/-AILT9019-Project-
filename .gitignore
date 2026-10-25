@@ -223,3 +223,11 @@ __marimo__/
 # Static builds and hosting-local state
 .vercel/
 node_modules/
+
+# API credentials and pulled deployment secrets
+.env.*
+!.env.example
+
+# This project's backend modules are source, not Python build output.
+!/lib/
+!/lib/*.mjs

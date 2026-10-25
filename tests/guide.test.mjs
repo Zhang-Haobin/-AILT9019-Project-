@@ -17,6 +17,13 @@ const cases = [
   ['an aluminum can', 'accepted', 'R05'],
   ['clean plastic beverage bottle', 'accepted', 'R07'],
   ['clean plastic takeaway box', 'accepted', 'R07'],
+  ['clean plastic fast food box', 'accepted', 'R07'],
+  ['plastic fast food box', 'clarify', 'R07'],
+  ['Where can i throw Fast food box', 'clarify'],
+  ['fast-food box', 'clarify'],
+  ['takeout container', 'clarify'],
+  ['paper takeaway box', 'unknown', 'S02'],
+  ['foam takeaway box', 'unknown', 'S02'],
   ['clean glass beverage bottle', 'accepted', 'R10'],
   ['clean glass sauce bottle', 'accepted', 'R10'],
   ['clean milk carton', 'accepted', 'R09'],
@@ -95,6 +102,31 @@ test('A generic battery query can be clarified without guessing its type or cond
   const followup = answer(type.query);
   assert.equal(followup.status, 'clarify');
   assert.equal(answer(followup.choices[0].query).status, 'accepted');
+});
+
+test('A fast-food box asks for material, then cleanliness, before a recommendation', () => {
+  const initial = answer('Where can i throw Fast food box');
+  assert.equal(initial.title, 'What is the takeaway box made of?');
+  assert.equal(initial.choices.length, 3);
+  const plastic = initial.choices.find(option => option.label === 'Plastic takeaway box');
+  const next = answer(plastic.query);
+  assert.equal(next.status, 'clarify');
+  assert.match(next.title, /clean/);
+  const clean = next.choices.find(option => option.cleanliness === 'clean');
+  assert.equal(answer(clean.query, clean).status, 'accepted');
+  for (const option of initial.choices.filter(option => option !== plastic)) {
+    assert.equal(answer(option.query).status, 'unknown');
+  }
+});
+
+test('Material clarification preserves dirty/negated conditions and existing hazard and scope guards', () => {
+  for (const query of ['greasy fast food box', "fast food box isn't clean", 'clean fast food box that is not empty']) {
+    const plastic = answer(query).choices.find(option => option.label === 'Plastic takeaway box');
+    assert.match(plastic.query, /^dirty /);
+    assert.notEqual(answer(plastic.query).status, 'accepted');
+  }
+  assert.equal(answer('chemical waste in a fast food box').status, 'refer');
+  assert.equal(answer('fast food box at home').status, 'out_of_scope');
 });
 
 test('Coffee-cup components come directly from the cited rule', () => {

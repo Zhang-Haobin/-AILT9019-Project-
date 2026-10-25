@@ -1,4 +1,5 @@
 import {createGuide} from './engine.mjs';
+import {createQueryGuide} from './guide-client.mjs';
 
 const form = document.querySelector('#question-form');
 const input = document.querySelector('#question');
@@ -6,6 +7,8 @@ const submit = document.querySelector('#submit-button');
 const panel = document.querySelector('#answer-panel');
 const content = document.querySelector('#answer-content');
 let answer;
+let queryGuide;
+let busy = false;
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -26,11 +29,31 @@ function updateCount() {
   document.querySelector('#character-count').textContent = `${input.value.length} / 600`;
 }
 
-function run(question, options = {}) {
-  const result = answer(question, options);
+function setBusy(value) {
+  busy = value;
+  input.disabled = value;
+  submit.disabled = value;
+  submit.firstElementChild.textContent = value ? 'Checking your question…' : 'Find my next step';
+  panel.setAttribute('aria-busy', String(value));
+  document.querySelectorAll('[data-query], .choice-button').forEach(button => {button.disabled = value;});
+}
+
+async function run(question, options = {}) {
+  if (busy || !queryGuide) return;
+  setBusy(true);
+  try {
+    const payload = await queryGuide(question, options);
+    renderResult(payload.result, payload.notice);
+  } finally {
+    setBusy(false);
+  }
+}
+
+function renderResult(result, notice) {
   panel.dataset.status = result.status;
   content.className = 'answer-content';
   content.replaceChildren();
+  content.append(element('p', 'result-foot', notice));
   const labels = {accepted:'Accepted with conditions', separate:'Separate components', clarify:'A little more detail', unknown:'Not covered yet', not_accepted:'Not accepted here', refer:'Specialist guidance', out_of_scope:'Outside this version', information:'Published guidance'};
   content.append(element('span', 'status-chip', labels[result.status]));
   const heading = element('h2', '', result.title);
@@ -105,6 +128,7 @@ async function loadJSON(url) {
 try {
   const [knowledge, catalog] = await Promise.all([loadJSON('/data/knowledge_base.json'), loadJSON('/data/sources.json')]);
   answer = createGuide(knowledge, catalog);
+  queryGuide = createQueryGuide(answer);
   document.querySelector('#source-count').textContent = String(catalog.sources.length);
   const list = document.querySelector('#source-list');
   list.replaceChildren();

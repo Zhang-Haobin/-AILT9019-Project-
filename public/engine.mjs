@@ -11,7 +11,7 @@ const ALIASES = {
   R04: ['food contaminated paper', 'paint contaminated cardboard', 'chemically contaminated paper'],
   R05: ['aluminium can', 'aluminium cans', 'aluminum can', 'aluminum cans', 'iron can', 'iron cans', 'soda can', 'soda cans'],
   R06: ['aerosol can', 'aerosol cans', 'paint can', 'paint cans', 'chemical container', 'chemical containers', 'cookware', 'potato chips can', 'potato chips cans', 'pringles can'],
-  R07: ['plastic beverage bottle', 'plastic beverage bottles', 'plastic bottle', 'plastic bottles', 'plastic takeaway box', 'plastic takeaway boxes', 'plastic takeout box'],
+  R07: ['plastic beverage bottle', 'plastic beverage bottles', 'plastic bottle', 'plastic bottles', 'plastic takeaway box', 'plastic takeaway boxes', 'plastic takeout box', 'plastic fast food box', 'plastic fast food boxes', 'plastic fastfood box', 'plastic takeaway container', 'plastic takeout container'],
   R08: ['medicine container', 'medicine containers', 'correction fluid container', 'toothpaste tube', 'toothpaste tubes', 'rubber product', 'silicone product', 'plastic products with metal components', 'composite material', 'composite materials'],
   R09: ['beverage carton', 'beverage cartons', 'milk carton', 'milk cartons', 'juice carton', 'tetra pak', 'paper cup', 'paper cups'],
   R10: ['glass beverage bottle', 'glass beverage bottles', 'glass food bottle', 'glass sauce bottle', 'glass bottle', 'glass bottles', 'vinegar bottle'],
@@ -33,6 +33,11 @@ const normalise = text => text.toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replac
 const has = (text, phrase) => ` ${text} `.includes(` ${phrase} `);
 const matches = (text, id) => (ALIASES[id] || []).some(alias => has(text, alias));
 const choice = (label, query, cleanliness) => ({label, query, ...(cleanliness ? {cleanliness} : {})});
+
+function itemCondition(text, options) {
+  const dirty = /\b(dirty|greasy|oily|stained|unclean|unwashed|food residue|not clean|not a clean|not empty|not rinsed|isn t clean|isn t empty|contaminated|leftover|leftovers|half full|full of|still contains|with coffee inside)\b/.test(text) || options.cleanliness === 'dirty';
+  return {dirty, clean: !dirty && (/\b(clean|cleaned|rinsed)\b/.test(text) || options.cleanliness === 'clean')};
+}
 
 export function createGuide(knowledge, catalog) {
   const rules = new Map(knowledge.rules.map(rule => [rule.id, rule]));
@@ -120,6 +125,22 @@ export function createGuide(knowledge, catalog) {
         choice('Personal care bottle', 'personal care bottle'),
       ]);
     }
+    if (!ids.length && /\b(?:(?:fast food|fastfood|takeaway|take away|takeout|take out|food|lunch) (?:box|boxes|container|containers)|lunchbox|lunchboxes)\b/.test(text)) {
+      // Packaging names do not establish material. In particular, do not apply
+      // the corrugated-paper or plastic-box rule to every fast-food container.
+      if (/\b(paper|cardboard|foam|styrofoam|polystyrene|expanded polystyrene|eps)\b/.test(text)) {
+        return base('unknown', 'I cannot confirm this takeaway box yet.', 'This guide has no verified item rule for a generic paper, coated-cardboard, or foam takeaway box. A material name alone does not establish acceptance. Check the official guide or ask re Kiosk staff.', {
+          inputType: 'takeaway_box', citations: [cite('S02', 'Recycling 101 / material categories')],
+        });
+      }
+      const {dirty, clean} = itemCondition(text, options);
+      const prefix = dirty ? 'dirty ' : clean ? 'clean ' : '';
+      return clarify('What is the takeaway box made of?', '“Fast food box” could mean different materials. Choose the actual material; cleanliness may need a separate check. If you cannot identify it, check with re Kiosk staff.', [
+        choice('Plastic takeaway box', `${prefix}plastic takeaway box`),
+        choice('Paper / cardboard takeaway box', `${prefix}paper takeaway box`),
+        choice('Foam / polystyrene takeaway box', `${prefix}foam takeaway box`),
+      ]);
+    }
     if (!ids.length) {
       return base('unknown', 'I cannot confirm this item yet.', 'No supported rule matches this description. Try a more specific English item name or check the official guide. An unknown item is not automatically general waste.', {
         citations: [cite('S02', 'Recycling 101 / material categories')],
@@ -147,8 +168,7 @@ export function createGuide(knowledge, catalog) {
       ], ['R12', 'R14']);
     }
 
-    const dirty = /\b(dirty|greasy|oily|stained|unclean|unwashed|food residue|not clean|not a clean|not empty|not rinsed|isn t clean|isn t empty|contaminated|leftover|leftovers|half full|full of|still contains|with coffee inside)\b/.test(text) || options.cleanliness === 'dirty';
-    const clean = !dirty && (/\b(clean|cleaned|rinsed)\b/.test(text) || options.cleanliness === 'clean');
+    const {dirty, clean} = itemCondition(text, options);
     const needsCondition = ['R01', 'R07', 'R09', 'R10', 'R15', 'R16', 'R18', 'R19', 'R21'].includes(id);
     if (needsCondition && dirty) {
       if (['R01', 'R15'].includes(id)) {
